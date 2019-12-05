@@ -8,7 +8,7 @@ FactoryBot.define do
   end
 
   factory :gram do
-    message { "hello" }
+    message { "Hello!" }
     association :user
   end
 end
