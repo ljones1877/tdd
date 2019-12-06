@@ -31,7 +31,7 @@ RSpec.describe GramsController, type: :controller do
       gram = FactoryBot.create(:gram)
       get :edit, params: { id: gram.id }
       expect(response).to have_http_status(:success)
-  end
+    end
 
     it "should return a 404 error message if the gram is not found" do
       get :edit, params: { id: 'SWAG' }
