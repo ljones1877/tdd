@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2019_12_07_154835) do
   enable_extension "plpgsql"
 
   create_table "grams", force: :cascade do |t|
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "message"
     t.string "picture"
     t.index ["user_id"], name: "index_grams_on_user_id"
   end
