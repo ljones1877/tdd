@@ -4,7 +4,7 @@
       <div class="handle"><%= gram.user.email %></div>
       <%= image_tag gram.picture, class: 'img-fluid' %>
       <p>
-        <%= gram.message %>
+      <%= gram.message %>
       </p>
 
       <div class="gram-actions float-right">
@@ -25,6 +25,7 @@
             <%= comment.message %>
           </div>
         <% end %>
+        
         <h4>Add a comment</h4>
         <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
           <%= f.input :message %>
