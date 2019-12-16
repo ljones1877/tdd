@@ -38,10 +38,20 @@ RSpec.configure do |config|
   include ActionDispatch::TestProcess
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  client = Aws::S3::Client.new(stub_responses: {
-    list_buckets: { buckets: [{name: 'my-bucket' }] },
-    get_object: { body: File.open(Rails.root.join('spec', 'fixtures', 'picture.png').to_s).read },
-  })
+  
+  Aws.config[:s3] = {
+  stub_responses: {
+    list_buckets: {
+      buckets: [name: "my-bucket"],
+    },
+    get_object: { body: File.open(Rails.root.join('spec', 'fixtures', 'picture.png').to_s).read }
+  }
+}
+
+
+
+
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
